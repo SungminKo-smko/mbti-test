@@ -4,7 +4,7 @@ let typeData = {};
 
 // Kakao SDK 초기화
 if (typeof Kakao !== 'undefined' && !Kakao.isInitialized()) {
-    Kakao.init('YOUR_KAKAO_APP_KEY'); // 나중에 실제 앱 키로 교체 필요
+    Kakao.init('40c91cf293a5d7853e746368a8489138'); // JavaScript 키
 }
 
 // 페이지 로드 시 실행
