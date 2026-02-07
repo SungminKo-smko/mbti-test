@@ -6,6 +6,10 @@
     <title>나의 MBTI 결과 🎉</title>
     <link rel="stylesheet" href="css/result.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3303070081473891" crossorigin="anonymous"></script>
+    <!-- Kakao SDK -->
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" integrity="sha384-TiCUE00h649CAMonG018J2ujOgDKW/kVWlChEuu4jK2vxfAAD0eZxzCKakxg55G4" crossorigin="anonymous"></script>
+    <!-- html2canvas for screenshot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -38,15 +42,49 @@
             <div class="share-section">
                 <h3>🎁 친구들에게 공유하기</h3>
                 <div class="share-buttons">
-                    <button class="share-btn" onclick="shareKakao()">
+                    <button class="share-btn kakao-btn" onclick="shareKakao()">
                         💬 카카오톡
                     </button>
-                    <button class="share-btn" onclick="shareLink()">
+                    <button class="share-btn sms-btn" onclick="shareSMS()">
+                        📱 문자메시지
+                    </button>
+                    <button class="share-btn link-btn" onclick="shareLink()">
                         🔗 링크 복사
                     </button>
-                    <button class="share-btn" onclick="saveImage()">
+                    <button class="share-btn save-btn" onclick="saveImage()">
                         📸 이미지 저장
                     </button>
+                </div>
+            </div>
+
+            <!-- 궁합 보기 -->
+            <div class="compatibility-section">
+                <h3>💕 친구와 궁합 보기</h3>
+                <p class="compatibility-desc">친구의 MBTI 유형을 선택해보세요!</p>
+                <select id="friendType" class="friend-select">
+                    <option value="">친구 유형 선택하기</option>
+                    <option value="ISTJ">ISTJ - 비버</option>
+                    <option value="ISFJ">ISFJ - 코알라</option>
+                    <option value="INFJ">INFJ - 부엉이</option>
+                    <option value="INTJ">INTJ - 독수리</option>
+                    <option value="ISTP">ISTP - 고양이</option>
+                    <option value="ISFP">ISFP - 토끼</option>
+                    <option value="INFP">INFP - 유니콘</option>
+                    <option value="INTP">INTP - 여우</option>
+                    <option value="ESTP">ESTP - 호랑이</option>
+                    <option value="ESFP">ESFP - 플라밍고</option>
+                    <option value="ENFP">ENFP - 돌고래</option>
+                    <option value="ENTP">ENTP - 앵무새</option>
+                    <option value="ESTJ">ESTJ - 사자</option>
+                    <option value="ESFJ">ESFJ - 강아지</option>
+                    <option value="ENFJ">ENFJ - 기린</option>
+                    <option value="ENTJ">ENTJ - 티라노</option>
+                </select>
+                <button class="check-compatibility-btn" onclick="checkCompatibility()">
+                    궁합 확인하기 ✨
+                </button>
+                <div id="compatibilityResult" class="compatibility-result" style="display:none;">
+                    <!-- JavaScript로 동적 생성 -->
                 </div>
             </div>
 
@@ -78,6 +116,7 @@
         </footer>
     </div>
 
+    <script src="js/compatibility.js"></script>
     <script src="js/result.js"></script>
 </body>
 </html>
