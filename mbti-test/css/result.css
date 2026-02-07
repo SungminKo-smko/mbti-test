@@ -1,0 +1,318 @@
+/* 기본 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 700px;
+    width: 100%;
+    background: white;
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 축하 효과 */
+.confetti {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 5rem;
+    animation: confettiFall 2s ease infinite;
+    opacity: 0.3;
+}
+
+@keyframes confettiFall {
+    0% {
+        top: -50px;
+        transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+        top: 100%;
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+
+/* 헤더 */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    animation: fadeInDown 0.8s ease;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* 결과 카드 */
+.result-card {
+    text-align: center;
+    background: linear-gradient(135deg, #f6f9fc 0%, #e9ecef 100%);
+    padding: 40px;
+    border-radius: 25px;
+    margin-bottom: 30px;
+    animation: scaleIn 0.8s ease;
+    border: 3px solid #e0e0e0;
+}
+
+.character-emoji {
+    font-size: 6rem;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+.mbti-type {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.type-name {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.character-name {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* 특징 섹션 */
+.traits-section {
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    border: 2px solid #f0f0f0;
+}
+
+.traits-section h3 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.traits-list {
+    list-style: none;
+    display: grid;
+    gap: 12px;
+}
+
+.traits-list li {
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #333;
+    border-left: 4px solid #667eea;
+    animation: slideInLeft 0.5s ease;
+    animation-fill-mode: both;
+}
+
+.traits-list li:nth-child(1) { animation-delay: 0.1s; }
+.traits-list li:nth-child(2) { animation-delay: 0.2s; }
+.traits-list li:nth-child(3) { animation-delay: 0.3s; }
+.traits-list li:nth-child(4) { animation-delay: 0.4s; }
+
+/* 공유 섹션 */
+.share-section {
+    margin-bottom: 30px;
+}
+
+.share-section h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.share-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.share-btn {
+    flex: 1;
+    min-width: 120px;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.share-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+.share-btn:active {
+    transform: translateY(0);
+}
+
+/* 다시하기 버튼 */
+.restart-button {
+    width: 100%;
+    padding: 18px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #667eea;
+    background: white;
+    border: 3px solid #667eea;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.restart-button:hover {
+    background: #667eea;
+    color: white;
+    transform: scale(1.02);
+}
+
+/* 안내 */
+.notice {
+    text-align: center;
+    padding: 15px;
+    background: #fff9e6;
+    border-radius: 10px;
+    border-left: 4px solid #ffd93d;
+}
+
+.notice p {
+    color: #856404;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* 푸터 */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+footer p {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* 애니메이션 */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 반응형 */
+@media (max-width: 600px) {
+    .container {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .result-card {
+        padding: 30px 20px;
+    }
+
+    .character-emoji {
+        font-size: 4rem;
+    }
+
+    .mbti-type {
+        font-size: 2.5rem;
+    }
+
+    .type-name {
+        font-size: 1.2rem;
+    }
+
+    .share-buttons {
+        flex-direction: column;
+    }
+
+    .share-btn {
+        width: 100%;
+    }
+}

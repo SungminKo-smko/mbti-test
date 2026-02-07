@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>성격 검사 중... 🎯</title>
+    <link rel="stylesheet" href="css/test.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 진행률 바 -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+            <div class="progress-text" id="progressText">1 / 16</div>
+        </div>
+
+        <!-- 질문 영역 -->
+        <div class="question-container">
+            <div class="question-number" id="questionNumber">질문 1</div>
+            <h2 class="question-text" id="questionText"></h2>
+        </div>
+
+        <!-- 선택지 -->
+        <div class="options-container" id="optionsContainer">
+            <!-- JavaScript로 동적 생성 -->
+        </div>
+
+        <!-- 네비게이션 버튼 -->
+        <div class="nav-buttons">
+            <button class="nav-btn prev-btn" id="prevBtn" onclick="prevQuestion()" disabled>
+                ← 이전
+            </button>
+            <button class="nav-btn next-btn" id="nextBtn" onclick="nextQuestion()" disabled>
+                다음 →
+            </button>
+        </div>
+    </div>
+
+    <script src="js/questions.js"></script>
+    <script src="js/test.js"></script>
+</body>
+</html>
