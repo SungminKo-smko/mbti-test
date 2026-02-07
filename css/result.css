@@ -162,32 +162,149 @@ h1 {
 }
 
 .share-buttons {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-    flex-wrap: wrap;
 }
 
 .share-btn {
-    flex: 1;
-    min-width: 120px;
     padding: 15px;
     font-size: 1rem;
     font-weight: bold;
     color: white;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border: none;
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
+.kakao-btn {
+    background: #FEE500;
+    color: #000;
+}
+
+.sms-btn {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+}
+
+.link-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.save-btn {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
 .share-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .share-btn:active {
     transform: translateY(0);
+}
+
+/* 궁합 섹션 */
+.compatibility-section {
+    background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
+    padding: 25px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    border: 2px solid #ffcccc;
+}
+
+.compatibility-section h3 {
+    font-size: 1.3rem;
+    color: #d63031;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.compatibility-desc {
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.friend-select {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    border: 2px solid #ffcccc;
+    border-radius: 12px;
+    background: white;
+    color: #333;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.friend-select:focus {
+    outline: none;
+    border-color: #d63031;
+    box-shadow: 0 0 0 3px rgba(214, 48, 49, 0.1);
+}
+
+.check-compatibility-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #fd79a8 0%, #d63031 100%);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.check-compatibility-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(214, 48, 49, 0.3);
+}
+
+.compatibility-result {
+    margin-top: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    border-left: 4px solid #d63031;
+    animation: fadeIn 0.5s ease;
+}
+
+.compatibility-score {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.score-emoji {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.score-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #d63031;
+    margin-bottom: 5px;
+}
+
+.score-subtitle {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.compatibility-details {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.compatibility-details p {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 10px;
 }
 
 /* 다시하기 버튼 */
@@ -318,10 +435,18 @@ footer p {
     }
 
     .share-buttons {
-        flex-direction: column;
+        grid-template-columns: 1fr;
     }
 
-    .share-btn {
-        width: 100%;
+    .compatibility-section {
+        padding: 20px;
+    }
+
+    .score-emoji {
+        font-size: 2.5rem;
+    }
+
+    .score-text {
+        font-size: 1.3rem;
     }
 }

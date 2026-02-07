@@ -2,6 +2,11 @@
 let mbtiResult = '';
 let typeData = {};
 
+// Kakao SDK 초기화
+if (typeof Kakao !== 'undefined' && !Kakao.isInitialized()) {
+    Kakao.init('40c91cf293a5d7853e746368a8489138'); // JavaScript 키
+}
+
 // 페이지 로드 시 실행
 document.addEventListener('DOMContentLoaded', async function() {
     // localStorage에서 결과 가져오기
@@ -76,8 +81,50 @@ function displayResult() {
 
 // 카카오톡 공유
 function shareKakao() {
-    // 카카오 SDK가 로드되지 않았으면 안내
-    alert('카카오톡 공유 기능은 곧 추가될 예정이에요! 😊\n지금은 링크 복사를 이용해주세요.');
+    if (typeof Kakao === 'undefined' || !Kakao.isInitialized()) {
+        alert('카카오톡 공유 기능 준비 중이에요! 😊\n지금은 링크 복사를 이용해주세요.');
+        return;
+    }
+    
+    const url = window.location.origin;
+    
+    Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: {
+            title: `나는 ${mbtiResult} - ${typeData.name}!`,
+            description: `${typeData.emoji} ${typeData.character} | ${typeData.description}`,
+            imageUrl: 'https://via.placeholder.com/800x400/667eea/ffffff?text=' + mbtiResult,
+            link: {
+                mobileWebUrl: url,
+                webUrl: url
+            }
+        },
+        buttons: [
+            {
+                title: '나도 검사하기',
+                link: {
+                    mobileWebUrl: url,
+                    webUrl: url
+                }
+            }
+        ]
+    });
+}
+
+// 문자메시지 공유
+function shareSMS() {
+    const text = `나는 ${mbtiResult} (${typeData.name})이야! 너도 검사해봐!\n${window.location.origin}`;
+    
+    // SMS 링크 생성
+    const smsLink = `sms:?body=${encodeURIComponent(text)}`;
+    
+    // iOS에서는 &body=, Android에서는 ?body= 사용
+    const userAgent = navigator.userAgent.toLowerCase();
+    const finalLink = userAgent.indexOf('iphone') > -1 || userAgent.indexOf('ipad') > -1
+        ? `sms:&body=${encodeURIComponent(text)}`
+        : smsLink;
+    
+    window.location.href = finalLink;
 }
 
 // 링크 복사
@@ -117,9 +164,61 @@ function fallbackCopyText(text) {
     document.body.removeChild(textArea);
 }
 
-// 이미지 저장 (간단 버전)
-function saveImage() {
-    alert('이미지 저장 기능은 곧 추가될 예정이에요! 😊\n지금은 스크린샷을 찍어주세요.');
+// 이미지 저장
+async function saveImage() {
+    if (typeof html2canvas === 'undefined') {
+        alert('이미지 저장 기능을 불러오는 중이에요! 잠시 후 다시 시도해주세요.');
+        return;
+    }
+    
+    showToast('이미지를 생성하는 중이에요... ⏳');
+    
+    try {
+        // 결과 카드만 캡처
+        const resultCard = document.querySelector('.result-card');
+        const canvas = await html2canvas(resultCard, {
+            backgroundColor: '#ffffff',
+            scale: 2, // 고해상도
+            logging: false
+        });
+        
+        // Canvas를 이미지로 변환
+        canvas.toBlob(function(blob) {
+            // 모바일에서는 다운로드 대신 공유
+            if (navigator.share && navigator.canShare && navigator.canShare({ files: [new File([blob], 'mbti-result.png', { type: 'image/png' })] })) {
+                const file = new File([blob], 'mbti-result.png', { type: 'image/png' });
+                navigator.share({
+                    title: `나의 MBTI - ${mbtiResult}`,
+                    text: `나는 ${typeData.name}!`,
+                    files: [file]
+                }).catch(() => {
+                    // 공유 취소 또는 실패 시 다운로드
+                    downloadImage(blob);
+                });
+            } else {
+                // 데스크톱에서는 다운로드
+                downloadImage(blob);
+            }
+        }, 'image/png');
+        
+    } catch (error) {
+        console.error('이미지 생성 실패:', error);
+        showToast('이미지 생성에 실패했어요 😢 다시 시도해주세요.');
+    }
+}
+
+// 이미지 다운로드
+function downloadImage(blob) {
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `mbti-${mbtiResult}-result.png`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    
+    showToast('이미지가 저장되었어요! 📸');
 }
 
 // 다시하기
@@ -160,6 +259,39 @@ function showToast(message) {
             document.body.removeChild(toast);
         }, 300);
     }, 3000);
+}
+
+// 궁합 확인
+function checkCompatibility() {
+    const friendType = document.getElementById('friendType').value;
+    
+    if (!friendType) {
+        alert('친구의 MBTI 유형을 선택해주세요!');
+        return;
+    }
+    
+    // 궁합 점수 계산
+    const score = getCompatibilityScore(mbtiResult, friendType);
+    const message = getCompatibilityMessage(score);
+    
+    // 결과 표시
+    const resultDiv = document.getElementById('compatibilityResult');
+    resultDiv.innerHTML = `
+        <div class="compatibility-score">
+            <div class="score-emoji">${message.emoji}</div>
+            <div class="score-text">${score}점</div>
+            <div class="score-subtitle">${message.title}</div>
+        </div>
+        <div class="compatibility-details">
+            <p><strong>나:</strong> ${mbtiResult} ${typeData.emoji}</p>
+            <p><strong>친구:</strong> ${friendType}</p>
+            <p style="margin-top: 15px;">${message.description}</p>
+        </div>
+    `;
+    resultDiv.style.display = 'block';
+    
+    // 스크롤
+    resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 // 애니메이션 CSS 추가
