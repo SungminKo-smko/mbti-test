@@ -1,0 +1,207 @@
+{
+  "page": {
+    "index": {
+      "title": "Kids MBTI Personality Test 🌈 — What's My Personality?",
+      "description": "A fun and easy MBTI personality test for kids! Answer 16 questions to find out your personality type."
+    },
+    "test": {
+      "title": "Taking the Test... 🎯 | Kids MBTI",
+      "description": "MBTI personality test in progress."
+    },
+    "result": {
+      "title": "My MBTI Result 🎉 | Kids MBTI",
+      "description": "Check out your MBTI personality type result!"
+    }
+  },
+  "nav": {
+    "logo": "Kids MBTI",
+    "home": "Home",
+    "about": "About",
+    "articles": "MBTI Info",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "menu_open": "Open menu"
+  },
+  "lang": {
+    "label": "Language"
+  },
+  "index": {
+    "hero_title": "🌟 What's My Personality? 🌟",
+    "hero_subtitle": "Discover your personality type through fun questions!",
+    "greeting": "Hey there! Nice to meet you!",
+    "intro_text": "Answer 16 fun questions and<br>I'll tell you your personality type!",
+    "time_info": "⏱️ Takes about 3 minutes",
+    "feature_easy": "Easy and fun",
+    "feature_types": "16 types",
+    "feature_cute": "Cute characters",
+    "start_button": "Start Test 🚀",
+    "notice": "💡 There are no wrong answers! Just go with your heart",
+    "articles_title": "📚 Learn More About MBTI",
+    "types_title": "🌈 View My Type Directly",
+    "more_articles": "View all articles →",
+    "footer_fun": "Just for fun! 😊",
+    "article1_title": "What is MBTI?",
+    "article1_desc": "Learn the basics and history easily",
+    "article2_title": "Understanding the 4 Dimensions",
+    "article2_desc": "Meaning of E/I, S/N, T/F, J/P indicators",
+    "article3_title": "MBTI and School Life",
+    "article3_desc": "Different school patterns by personality type",
+    "article4_title": "MBTI and Friendships",
+    "article4_desc": "Which types get along best?"
+  },
+  "test": {
+    "question_label": "Question {n}",
+    "result_button": "See Results 🎉",
+    "prev_button": "← Back",
+    "next_button": "Next →",
+    "alert_complete": "Please answer all questions!"
+  },
+  "result": {
+    "complete_title": "Done! 🎊",
+    "complete_subtitle": "Your personality type is...",
+    "traits_title": "✨ My Traits",
+    "share_title": "🎁 Share with Friends",
+    "share_kakao": "💬 KakaoTalk",
+    "share_sms": "📱 Text Message",
+    "share_link": "🔗 Copy Link",
+    "share_image": "📸 Save Image",
+    "compat_title": "💕 Check Compatibility",
+    "compat_desc": "Select your friend's MBTI type!",
+    "compat_placeholder": "Select friend's type",
+    "compat_button": "Check Compatibility ✨",
+    "compat_me": "Me:",
+    "compat_friend": "Friend:",
+    "restart_button": "Retake Test 🔄",
+    "notice": "💡 This test is just for fun!<br>Results may differ from official MBTI 😊",
+    "toast_link_copied": "Link copied! Share with your friends 🎉",
+    "toast_img_generating": "Generating image... ⏳",
+    "toast_img_saved": "Image saved! 📸",
+    "toast_img_error": "Image generation failed 😢 Please try again.",
+    "alert_no_result": "Please take the test first!",
+    "alert_no_friend": "Please select your friend's MBTI type!",
+    "alert_kakao_na": "KakaoTalk sharing coming soon! 😊\nPlease use the link copy for now.",
+    "sms_text": "I'm {type} ({name})! Take the test too!\n{url}",
+    "kakao_title": "I'm {type} - {name}!",
+    "kakao_btn": "Take the test",
+    "share_title_native": "My MBTI - {type}",
+    "share_text_native": "I'm {name}!",
+    "img_filename": "mbti-{type}-result.png",
+    "copy_error": "Failed to copy link 😢\nPlease copy manually:\n"
+  },
+  "types": {
+    "ISTJ": {
+      "name": "The Reliable Manager",
+      "character": "Beaver",
+      "description": "You always keep your promises and have a strong sense of responsibility!",
+      "traits": ["Make plans and follow through", "Great at organizing", "Always keep promises", "Careful and thorough"]
+    },
+    "ISFJ": {
+      "name": "The Warm Guardian",
+      "character": "Koala",
+      "description": "You take great care of friends and are very considerate!",
+      "traits": ["Always help others", "Look after friends", "Warm-hearted", "Quiet but dependable"]
+    },
+    "INFJ": {
+      "name": "The Mysterious Prophet",
+      "character": "Owl",
+      "description": "You think deeply and have unique, special ideas!",
+      "traits": ["Rich imagination", "Great at understanding others", "Love meaningful activities", "Have a mysterious charm"]
+    },
+    "INTJ": {
+      "name": "The Strategist",
+      "character": "Eagle",
+      "description": "You're smart and great at making plans!",
+      "traits": ["Think logically", "Set goals and achieve them", "Love learning new things", "Independent"]
+    },
+    "ISTP": {
+      "name": "The Versatile Craftsman",
+      "character": "Cat",
+      "description": "You're handy and very curious!",
+      "traits": ["Great at making things", "Excellent problem-solver", "Love freedom", "Practical"]
+    },
+    "ISFP": {
+      "name": "The Artist",
+      "character": "Rabbit",
+      "description": "You're emotional and have a great artistic sense!",
+      "traits": ["Love art and music", "Gentle and kind", "Love nature", "Value peace"]
+    },
+    "INFP": {
+      "name": "The Dreamy Idealist",
+      "character": "Unicorn",
+      "description": "You have a rich imagination and a warm heart!",
+      "traits": ["Love to imagine", "Great at writing and storytelling", "Kind to friends", "Have special dreams"]
+    },
+    "INTP": {
+      "name": "The Logical Thinker",
+      "character": "Fox",
+      "description": "You're curious about everything and think logically!",
+      "traits": ["Always asking why", "Great at new ideas", "Love puzzles and problem-solving", "Creative"]
+    },
+    "ESTP": {
+      "name": "The Adventurer",
+      "character": "Tiger",
+      "description": "You're active and love challenges!",
+      "traits": ["Love sports", "Strong sense of adventure", "Act quickly", "Love playing with friends"]
+    },
+    "ESFP": {
+      "name": "The Free Entertainer",
+      "character": "Flamingo",
+      "description": "You're bright and fun, and super popular!",
+      "traits": ["Make the atmosphere fun", "Love dancing and singing", "Have lots of friends", "Positive"]
+    },
+    "ENFP": {
+      "name": "The Spirited Activist",
+      "character": "Dolphin",
+      "description": "You're passionate and full of creative ideas!",
+      "traits": ["Love trying new things", "Rich imagination", "Love talking with friends", "Full of energy"]
+    },
+    "ENTP": {
+      "name": "The Inventor",
+      "character": "Parrot",
+      "description": "You're clever and witty with great ideas!",
+      "traits": ["Love debates", "Full of creative ideas", "Smart", "Very curious"]
+    },
+    "ESTJ": {
+      "name": "The Strict Manager",
+      "character": "Lion",
+      "description": "You have great leadership and a strong sense of responsibility!",
+      "traits": ["Great class president", "Follow rules well", "Highly organized", "Make decisions well"]
+    },
+    "ESFJ": {
+      "name": "The Social Diplomat",
+      "character": "Dog",
+      "description": "You love hanging out with friends and are very popular!",
+      "traits": ["Always help friends", "Very sociable", "Kind and warm", "Great at teamwork"]
+    },
+    "ENFJ": {
+      "name": "The Righteous Leader",
+      "character": "Giraffe",
+      "description": "You're charismatic and great at leading friends!",
+      "traits": ["Inspire friends", "Great speaker", "Understand others", "Give positive energy"]
+    },
+    "ENTJ": {
+      "name": "The Bold Commander",
+      "character": "T-Rex",
+      "description": "You're confident and great at achieving goals!",
+      "traits": ["Strong leadership", "Great at planning", "Logical", "Goal-oriented"]
+    }
+  },
+  "compat_options": {
+    "ISTJ": "ISTJ - Beaver",
+    "ISFJ": "ISFJ - Koala",
+    "INFJ": "INFJ - Owl",
+    "INTJ": "INTJ - Eagle",
+    "ISTP": "ISTP - Cat",
+    "ISFP": "ISFP - Rabbit",
+    "INFP": "INFP - Unicorn",
+    "INTP": "INTP - Fox",
+    "ESTP": "ESTP - Tiger",
+    "ESFP": "ESFP - Flamingo",
+    "ENFP": "ENFP - Dolphin",
+    "ENTP": "ENTP - Parrot",
+    "ESTJ": "ESTJ - Lion",
+    "ESFJ": "ESFJ - Dog",
+    "ENFJ": "ENFJ - Giraffe",
+    "ENTJ": "ENTJ - T-Rex"
+  }
+}

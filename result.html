@@ -12,6 +12,7 @@
     <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" integrity="sha384-TiCUE00h649CAMonG018J2ujOgDKW/kVWlChEuu4jK2vxfAAD0eZxzCKakxg55G4" crossorigin="anonymous"></script>
     <!-- html2canvas for screenshot -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="js/i18n.js"></script>
 </head>
 <body>
 
@@ -20,17 +21,21 @@
     <div class="nav-inner">
         <a href="index.html" class="nav-logo">
             <span class="nav-logo-icon">🌟</span>
-            <span>어린이 MBTI</span>
+            <span data-i18n="nav.logo">어린이 MBTI</span>
         </a>
-        <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">
+        <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기" data-i18n-aria="nav.menu_open">
             <span></span><span></span><span></span>
         </button>
         <div class="nav-links" id="navLinks">
-            <a href="index.html">홈</a>
-            <a href="about.html">소개</a>
-            <a href="articles/index.html">MBTI 정보</a>
-            <a href="contact.html">문의</a>
-            <a href="privacy.html">개인정보</a>
+            <a href="index.html" data-i18n="nav.home">홈</a>
+            <a href="about.html" data-i18n="nav.about">소개</a>
+            <a href="articles/index.html" data-i18n="nav.articles">MBTI 정보</a>
+            <a href="contact.html" data-i18n="nav.contact">문의</a>
+            <a href="privacy.html" data-i18n="nav.privacy">개인정보</a>
+            <div class="lang-switcher" aria-label="언어 선택">
+                <button class="lang-btn active" data-lang="ko" onclick="I18n.setLanguage('ko')">한국어</button>
+                <button class="lang-btn" data-lang="en" onclick="I18n.setLanguage('en')">English</button>
+            </div>
         </div>
     </div>
 </nav>
@@ -41,8 +46,8 @@
 
         <!-- 헤더 -->
         <div class="result-header">
-            <h1>검사 완료! 🎊</h1>
-            <p class="subtitle">당신의 성격 유형은...</p>
+            <h1 data-i18n="result.complete_title">검사 완료! 🎊</h1>
+            <p class="subtitle" data-i18n="result.complete_subtitle">당신의 성격 유형은...</p>
         </div>
 
         <!-- 결과 카드 -->
@@ -57,7 +62,7 @@
 
         <!-- 특징 -->
         <div class="traits-section">
-            <h3>✨ 나의 특징</h3>
+            <h3 data-i18n="result.traits_title">✨ 나의 특징</h3>
             <ul class="traits-list" id="traitsList">
                 <!-- JavaScript로 동적 생성 -->
             </ul>
@@ -65,18 +70,18 @@
 
         <!-- 공유 버튼 -->
         <div class="share-section">
-            <h3>🎁 친구들에게 공유하기</h3>
+            <h3 data-i18n="result.share_title">🎁 친구들에게 공유하기</h3>
             <div class="share-buttons">
-                <button class="share-btn kakao-btn" onclick="shareKakao()">
+                <button class="share-btn kakao-btn" onclick="shareKakao()" data-i18n="result.share_kakao">
                     💬 카카오톡
                 </button>
-                <button class="share-btn sms-btn" onclick="shareSMS()">
+                <button class="share-btn sms-btn" onclick="shareSMS()" data-i18n="result.share_sms">
                     📱 문자메시지
                 </button>
-                <button class="share-btn link-btn" onclick="shareLink()">
+                <button class="share-btn link-btn" onclick="shareLink()" data-i18n="result.share_link">
                     🔗 링크 복사
                 </button>
-                <button class="share-btn save-btn" onclick="saveImage()">
+                <button class="share-btn save-btn" onclick="saveImage()" data-i18n="result.share_image">
                     📸 이미지 저장
                 </button>
             </div>
@@ -84,10 +89,10 @@
 
         <!-- 궁합 보기 -->
         <div class="compatibility-section">
-            <h3>💕 친구와 궁합 보기</h3>
-            <p class="compatibility-desc">친구의 MBTI 유형을 선택해보세요!</p>
+            <h3 data-i18n="result.compat_title">💕 친구와 궁합 보기</h3>
+            <p class="compatibility-desc" data-i18n="result.compat_desc">친구의 MBTI 유형을 선택해보세요!</p>
             <select id="friendType" class="friend-select">
-                <option value="">친구 유형 선택하기</option>
+                <option value="" data-i18n-placeholder="result.compat_placeholder">친구 유형 선택하기</option>
                 <option value="ISTJ">ISTJ - 비버</option>
                 <option value="ISFJ">ISFJ - 코알라</option>
                 <option value="INFJ">INFJ - 부엉이</option>
@@ -105,7 +110,7 @@
                 <option value="ENFJ">ENFJ - 기린</option>
                 <option value="ENTJ">ENTJ - 티라노</option>
             </select>
-            <button class="check-compatibility-btn" onclick="checkCompatibility()">
+            <button class="check-compatibility-btn" onclick="checkCompatibility()" data-i18n="result.compat_button">
                 궁합 확인하기 ✨
             </button>
             <div id="compatibilityResult" class="compatibility-result" style="display:none;">
@@ -114,12 +119,12 @@
         </div>
 
         <!-- 다시하기 버튼 -->
-        <button class="restart-button" onclick="restart()">
+        <button class="restart-button" onclick="restart()" data-i18n="result.restart_button">
             다시 검사하기 🔄
         </button>
 
         <div class="notice">
-            <p>💡 이 검사는 재미로 하는 거예요!<br>실제 MBTI와는 다를 수 있어요 😊</p>
+            <p data-i18n-html="result.notice">💡 이 검사는 재미로 하는 거예요!<br>실제 MBTI와는 다를 수 있어요 😊</p>
         </div>
 
         <!-- AdSense 광고 -->
